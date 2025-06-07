@@ -5,11 +5,13 @@
   <title>Sternenkinder entdecken die Welt</title>
   <style>
     body {
-      font-family: sans-serif;
+      font-family: Arial, sans-serif;
       background-color: #fefaf6;
       color: #3c3c3c;
       margin: 0;
       padding: 0;
+      background-image: radial-gradient(circle, #ffebc6 1px, transparent 1px);
+      background-size: 30px 30px;
     }
     header {
       background-color: #fff4e0;
@@ -20,13 +22,15 @@
       max-width: 200px;
     }
     h1, h2 {
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      color: #ff9900;
+      font-family: Arial, sans-serif;
+      color: #ff6600; /* Knalliger, freundlicher Farbton */
+      margin-bottom: 10px;
     }
     section {
       padding: 40px 20px;
       max-width: 800px;
       margin: 0 auto;
+      position: relative;
     }
     .button {
       display: inline-block;
@@ -42,6 +46,20 @@
       text-align: center;
       padding: 20px;
     }
+    /* Kleine Sterne */
+    .star {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: gold;
+      border-radius: 50%;
+      box-shadow: 0 0 10px gold;
+      animation: twinkle 2s infinite alternate;
+    }
+    @keyframes twinkle {
+      from { opacity: 0.2; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1.2); }
+    }
   </style>
 </head>
 <body>
@@ -50,6 +68,13 @@
     <img src="logo.png" alt="Sternenkinder entdecken die Welt">
     <h1>Sternenkinder entdecken die Welt</h1>
   </header>
+
+  <!-- Sterne in der Seite platzieren -->
+  <div class="star" style="top: 50px; left: 20px;"></div>
+  <div class="star" style="top: 120px; right: 50px;"></div>
+  <div class="star" style="top: 300px; left: 60px;"></div>
+  <div class="star" style="top: 500px; right: 100px;"></div>
+  <div class="star" style="top: 700px; left: 30px;"></div>
 
   <section>
     <h2>Willkommen</h2>
