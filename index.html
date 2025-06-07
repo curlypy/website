@@ -14,46 +14,42 @@
   header {
     background: #fff4e0;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     padding: 20px 40px;
   }
-  header img {
-    max-width: 120px; /* Maximalbreite */
-    height: auto; /* Proportionen bleiben erhalten */
-    filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.2)); /* optional: sanfter Schatten */
-  }
-  nav a {
+  header nav a {
     margin-left: 20px;
     text-decoration: none;
     color: #8BC34A;
     font-weight: bold;
     transition: color 0.3s;
   }
-  nav a:hover {
+  header nav a:hover {
     color: #FFA500;
   }
-  h1, h2 {
-    font-family: 'Poppins', sans-serif;
-    margin: 0 0 10px;
-  }
-  h1 {
-    color: #FFA500; /* Orange wie im Logo */
-    font-size: 2.2em;
-  }
   h2 {
-    color: #8BC34A; /* Grün wie das Wesen im Logo */
+    font-family: 'Poppins', sans-serif;
+    color: #8BC34A;
     font-size: 1.6em;
+    margin: 0 0 10px;
   }
   .hero {
     background: linear-gradient(rgba(255,165,0,0.3), rgba(255,165,0,0.3)), url('hero-illustration.jpg') center/cover no-repeat;
     color: #fff;
     text-align: center;
     padding: 100px 20px;
-    position: relative;
   }
-  .hero h1 {
-    color: #fff;
+  .hero-logo {
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+    filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
+  }
+  .hero p {
+    font-size: 1.4em;
+    margin: 0;
   }
   .section {
     padding: 60px 20px;
@@ -101,7 +97,6 @@
 <body>
 
 <header>
-  <img src="logo.png" alt="Logo">
   <nav>
     <a href="#projekt">Über das Projekt</a>
     <a href="#geschichten">Geschichten</a>
@@ -111,7 +106,7 @@
 </header>
 
 <section class="hero">
-  <h1>Sternenkinder entdecken die Welt</h1>
+  <img src="logo.png" alt="Sternenkinder entdecken die Welt" class="hero-logo">
   <p>Zauberhafte Geschichten für unvergessene Herzen</p>
 </section>
 
@@ -133,7 +128,7 @@
 <section class="section" id="kontakt">
   <h2>Kontakt</h2>
   <p>Du möchtest eine Geschichte für dein Sternenkind? Ich freue mich auf deine Nachricht!</p>
-  <a class="button" href="mailto:deine@email.de">Jetzt Kontakt aufnehmen</a>
+  <a class="button" href="mailto:kontakt@sternenkinder-entdecken-die-welt.de">Jetzt Kontakt aufnehmen</a>
 </section>
 
 <section class="section" id="ueber-mich">
@@ -145,7 +140,7 @@
     Meine kleinen Sterne haben mich gelehrt, dass jede Seele – egal wie kurz sie bei uns war – Spuren hinterlässt. Und ich glaube fest daran: Diese Spuren sind wie kleine Sterne, die für immer leuchten.
     <br><br>
     „Sternenkinder entdecken die Welt“ ist zugleich ein Kinderbuch, das auch anderen kleinen Kindern und vielleicht zukünftigen Geschwistern Magie und Freude in den Alltag bringen soll.
-    In den Geschichten werden unscheinbare Dinge – zum Leben erweckt und bekommen ihren ganz eigenen Raum. Sie werden zu Freunden, zu kleinen Helden, zu einem Teil dieser magischen Welt.
+    In den Geschichten werden unscheinbare Dinge – ein Löffel, ein Handtuch, ein Stuhl – zum Leben erweckt und bekommen ihren ganz eigenen Raum. Sie werden zu Freunden, zu kleinen Helden, zu einem Teil dieser magischen Welt.
     <br><br>
     So möchte ich zeigen, dass selbst die kleinsten Alltagsdinge etwas Besonderes sein können und unsere Fantasie beflügeln. Es soll Eltern begleiten, erinnern, trösten – und gleichzeitig Kindern ein Lächeln schenken und ihre Welt mit leuchtenden Augen sehen lassen.
     <br><br>
