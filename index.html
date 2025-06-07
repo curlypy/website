@@ -1,130 +1,141 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Sternenkinder entdecken die Welt</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #fefaf6;
-      color: #3c3c3c;
-      margin: 0;
-      padding: 0;
-      background-image: radial-gradient(circle, #ffebc6 1px, transparent 1px);
-      background-size: 30px 30px;
-    }
-    header {
-      background-color: #fff4e0;
-      padding: 20px;
-      text-align: center;
-    }
-    header img {
-      max-width: 200px;
-    }
-    h1 {
-      font-family: Arial, sans-serif;
-      color: #FFA500; /* Farbe aus dem Logo */
-      margin-bottom: 10px;
-    }
-    h2 {
-      font-family: Arial, sans-serif;
-      color: #32CD32; /* Freundliches Grün */
-      margin-bottom: 10px;
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: 0 auto;
-      position: relative;
-    }
-    .button {
-      display: inline-block;
-      background-color: #ff9900;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 20px;
-      text-decoration: none;
-      margin-top: 20px;
-    }
-    footer {
-      background-color: #fff4e0;
-      text-align: center;
-      padding: 20px;
-    }
-    /* Sternform */
-    .star {
-      position: absolute;
-      width: 0;
-      height: 0;
-      color: gold;
-      font-size: 20px;
-      animation: twinkle 2s infinite alternate;
-    }
-    @keyframes twinkle {
-      from { opacity: 0.5; transform: scale(0.8); }
-      to { opacity: 1; transform: scale(1.2); }
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Sternenkinder entdecken die Welt</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: #F9F5EF;
+    color: #333;
+    margin: 0;
+  }
+  header {
+    background: #fff4e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+  }
+  header img {
+    height: 60px;
+  }
+  nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #8BC34A;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  nav a:hover {
+    color: #FFA500;
+  }
+  h1, h2 {
+    font-family: 'Poppins', sans-serif;
+    margin: 0 0 10px;
+  }
+  h1 {
+    color: #FFA500; /* Orange wie im Logo */
+    font-size: 2.2em;
+  }
+  h2 {
+    color: #8BC34A; /* Grün wie das Wesen im Logo */
+    font-size: 1.6em;
+  }
+  .hero {
+    background: linear-gradient(rgba(255,165,0,0.3), rgba(255,165,0,0.3)), url('hero-illustration.jpg') center/cover no-repeat;
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+  }
+  .hero h1 {
+    color: #fff;
+  }
+  .section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: auto;
+  }
+  .stars {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .star {
+    width: 30px;
+    height: 30px;
+    fill: #FFD700;
+    animation: twinkle 2s infinite alternate;
+  }
+  @keyframes twinkle {
+    from { opacity: 0.6; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1.1); }
+  }
+  .button {
+    display: inline-block;
+    background-color: #FFA500;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+  }
+  .button:hover {
+    background-color: #ffb733;
+  }
+  footer {
+    background: #fff4e0;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+  }
+</style>
 </head>
 <body>
 
-  <header>
-    <img src="logo.png" alt="Sternenkinder entdecken die Welt">
-    <h1>Sternenkinder entdecken die Welt</h1>
-  </header>
+<header>
+  <img src="logo.png" alt="Logo">
+  <nav>
+    <a href="#projekt">Über das Projekt</a>
+    <a href="#geschichten">Geschichten</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+</header>
 
-  <!-- Sterne in der Seite platzieren -->
-  <div class="star" style="top: 50px; left: 20px;">★</div>
-  <div class="star" style="top: 120px; right: 50px;">★</div>
-  <div class="star" style="top: 300px; left: 60px;">★</div>
-  <div class="star" style="top: 500px; right: 100px;">★</div>
-  <div class="star" style="top: 700px; left: 30px;">★</div>
+<section class="hero">
+  <h1>Sternenkinder entdecken die Welt</h1>
+  <p>Zauberhafte Geschichten für unvergessene Herzen</p>
+</section>
 
-  <section>
-    <h2>Willkommen</h2>
-    <p>
-      Hier erzählen Sternenkinder ihre ganz eigenen Geschichten – von Magie, Leichtigkeit und
-      kleinen Wundern. Jedes Sternenkind bringt Freude und ein Stück Himmel mit, um die Welt zu entdecken.
-    </p>
-  </section>
+<section class="section" id="projekt">
+  <h2>Über das Projekt</h2>
+  <p>„Sternenkinder entdecken die Welt“ ist ein Herzensprojekt, das Sternenkindern eine Stimme gibt. In liebevollen Geschichten werden sie zu neugierigen Abenteurern, die unsere Welt mit funkelnden Augen erkunden.</p>
+</section>
 
-  <section>
-    <h2>Über das Projekt</h2>
-    <p>
-      „Sternenkinder entdecken die Welt“ ist ein Herzensprojekt, das Sternenkindern eine Stimme gibt.
-      In liebevollen Geschichten werden sie zu neugierigen, kleinen Abenteurern, die unsere Welt mit funkelnden Augen erkunden.
-    </p>
-  </section>
+<section class="section" id="geschichten">
+  <h2>Geschichten</h2>
+  <p>Entdecke liebevolle Geschichten von kleinen Sternen, die Alltagsgegenstände zum Leben erwecken. Jeder Gegenstand erzählt eine Geschichte – voller Magie und Freude.</p>
+  <div class="stars">
+    <svg class="star" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+    <svg class="star" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+    <svg class="star" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+  </div>
+</section>
 
-  <section>
-    <h2>Geschichten</h2>
-    <p>
-      Entdecke zauberhafte Geschichten – von kleinen Sternen, die einen Löffel zum Leben erwecken
-      oder das Geheimnis eines Handtuchs ergründen. Jeder Gegenstand wird zu einem treuen Freund, jedes Kapitel zu einem Abenteuer.
-    </p>
-  </section>
+<section class="section" id="kontakt">
+  <h2>Kontakt</h2>
+  <p>Du möchtest eine Geschichte für dein Sternenkind? Ich freue mich auf deine Nachricht!</p>
+  <a class="button" href="mailto:deine@email.de">Jetzt Kontakt aufnehmen</a>
+</section>
 
-  <section>
-    <h2>Dein Sternenkind</h2>
-    <p>
-      Du möchtest deinem Sternenkind eine eigene Geschichte schenken? Gib ihm einen Namen, ein Geburtsdatum
-      und wähle einen Gegenstand, den es entdecken darf. Gemeinsam erschaffen wir ein einzigartiges Kapitel –
-      voller Wärme, Magie und Erinnerungen.
-    </p>
-    <a class="button" href="kontakt.html">Jetzt Kontakt aufnehmen</a>
-  </section>
-
-  <section>
-    <h2>Über mich</h2>
-    <p>
-      Ich bin Petra und selbst Mama von drei Sternenkindern. Dieses Projekt ist mein Weg,
-      anderen Eltern Trost und ein Stück Magie zu schenken – ein Platz voller Wärme, Fantasie und Liebe.
-    </p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Sternenkinder entdecken die Welt – Ein Herzensprojekt</p>
-  </footer>
+<footer>
+  <p>&copy; 2025 Sternenkinder entdecken die Welt – Ein Herzensprojekt</p>
+</footer>
 
 </body>
 </html>
