@@ -17,7 +17,9 @@
   @keyframes twinkle { from { opacity: 0.7; transform: rotateX(20deg) rotateY(20deg) scale(1); } to { opacity: 1; transform: rotateX(20deg) rotateY(20deg) scale(1.1); } }
   .sternenkind { margin-top: 40px; background: #fff; border-radius: 20px; padding: 30px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
   .sternenkind img { width: 150px; border-radius: 50%; margin: 20px auto; display: block; }
-  .sternenkind h2 { color: #6FAE3A; margin-top: 10px; }
+  .sternenkind h2 { margin-top: 10px; }
+  .sternenkind.blake h2 { color: #6FAE3A; } /* Grünton für Blake */
+  .sternenkind.lou h2 { color: #9AC9DE; }  /* Sanftes Blau für Lou */
   .sternenkind p { font-size: 1em; line-height: 1.5; }
   footer { background: #fff4e0; display: flex; justify-content: center; align-items: center; padding: 10px 40px; height: 80px; font-size: 0.9em; color: #FFA500; }
 </style>
@@ -40,7 +42,7 @@
 <section class="section">
   <p>Hier kannst du deine Sternenkinder vorstellen, ihre Geschichten teilen oder einfach einen liebevollen Gruß hinterlassen. Lass uns gemeinsam Erinnerungen bewahren und diesen kleinen Sternen ein helles Licht schenken.</p>
 
-  <div class="sternenkind">
+  <div class="sternenkind blake">
     <img src="blakewinkendundsitzend.png" alt="Blake, das Sternenkind">
     <h2>Hallo, ich bin Blake!</h2>
     <p>
@@ -53,7 +55,7 @@
     </p>
   </div>
 
-  <div class="sternenkind">
+  <div class="sternenkind lou">
     <img src="louwinkend.png" alt="Lou, das Sternenkind">
     <h2>Hallo, ich bin Lou!</h2>
     <p>
