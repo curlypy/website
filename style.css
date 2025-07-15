@@ -11,7 +11,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  background: linear-gradient(to right, #4A90E2, #243B55, #141E30); /* kräftigerer Verlauf */
+  background: linear-gradient(to right, #4A90E2 0%, #243B55 60%, #0D0D0D 100%);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,9 +19,10 @@ header {
   z-index: 1000;
   height: 120px;
   box-sizing: border-box;
-}
+  }
 
-/* LOGO: passt genau in den Header */
+
+  /* LOGO: passt genau in den Header */
 .logo {
   height: 200px;
   width: auto;
@@ -104,7 +105,7 @@ h1 {
 
 /* Footer: gleich wie Header */
 footer {
-  background: linear-gradient(to right, #4A90E2, #243B55, #141E30);
+  background: linear-gradient(to right, #4A90E2 0%, #243B55 60%, #0D0D0D 100%);
   color: white;
   text-align: center;
   padding: 20px 0;
