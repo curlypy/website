@@ -236,4 +236,48 @@ footer {
   header {
     flex-wrap: wrap;
   }
+}/* Burger-Icon: nur sichtbar auf kleinen Bildschirmen */
+.burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.burger .line {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+}
+
+/* Für kleine Bildschirme */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background-color: #141E30;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .logo {
+    max-height: 80px;
+  }
 }
