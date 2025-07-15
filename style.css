@@ -9,18 +9,24 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  background: linear-gradient(to right, #000000, #1a1a1a);
+  background: linear-gradient(to bottom, #000000, #1a1a1a 80%, transparent 100%);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 40px;
   z-index: 1000;
-  height: 100px;
+  height: 80px;
 }
 
 .logo {
-  height: 150px;
+  height: 70px;
   width: auto;
+}
+
+nav {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
 }
 
 nav a {
@@ -45,7 +51,7 @@ nav a:hover {
 
 .hero h1 {
   font-family: 'Poppins', sans-serif;
-  color: #FFA500;
+  color: #FFD700; /* Gold wie kleine Sterne */
   font-size: 2.5em;
   margin-bottom: 20px;
 }
