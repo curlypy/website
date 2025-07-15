@@ -1,3 +1,4 @@
+/* Grundlayout */
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
@@ -5,30 +6,27 @@ body {
   color: #333;
 }
 
+/* HEADER mit leichtem blauem Nachthimmel-Verlauf */
 header {
   position: fixed;
   top: 0;
   width: 100%;
-  background: linear-gradient(to bottom, #cde9f9, #f5faff 80%, transparent 100%);
+  background: linear-gradient(to right, #243B55, #141E30); /* sanftes Nachthimmelblau */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 40px;
   z-index: 1000;
-  height: 80px
+  height: 100px;
 }
 
+/* LOGO leicht größer und gut lesbar */
 .logo {
-  height: 300px;
+  height: 90px;
   width: auto;
 }
 
-nav {
-  display: flex;
-  margin-left: auto;
-  align-items: center;
-}
-
+/* Navigation */
 nav a {
   color: white;
   text-decoration: none;
@@ -42,6 +40,7 @@ nav a:hover {
   color: #ffcc70;
 }
 
+/* Startseiten-Bereich */
 .hero {
   background: transparent;
   margin-top: 120px;
@@ -49,19 +48,27 @@ nav a:hover {
   text-align: center;
 }
 
+/* ORANGE h1 nur auf Startseite */
 .hero h1 {
   font-family: 'Poppins', sans-serif;
-  color: #FFD700; /* Gold wie kleine Sterne */
+  color: #FFA500;
   font-size: 2.5em;
   margin-bottom: 20px;
 }
 
+/* Überschriften auf anderen Seiten schwarz */
+h1 {
+  color: #000000;
+}
+
+/* Text Startseite */
 .hero p {
   max-width: 700px;
   margin: 0 auto;
   font-size: 1.1em;
 }
 
+/* Inhaltsbereich */
 .content {
   padding: 60px 20px;
   max-width: 900px;
@@ -70,6 +77,7 @@ nav a:hover {
   background: #fff;
 }
 
+/* 3D-Sterne */
 .stars-3d {
   display: flex;
   justify-content: center;
@@ -91,6 +99,7 @@ nav a:hover {
   to   { opacity: 1; transform: scale(1.1); }
 }
 
+/* Footer */
 footer {
   background: #1a1a1a;
   color: white;
