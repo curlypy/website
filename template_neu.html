@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sternenkinder – Sternenkinder entdecken die Welt</title>
+  <title>Sternenkinder entdecken die Welt</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -13,7 +13,14 @@
     <div class="logo-container">
       <img src="logo_schwarz_weiss.png" alt="Sternenkinder Logo" class="logo" />
     </div>
-    <nav>
+
+    <div class="burger" onclick="toggleMenu()">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+
+    <nav id="nav-links">
       <a href="index.html">Startseite</a>
       <a href="sternenkinder.html">Sternenkinder</a>
       <a href="ueber-mich.html">Über mich</a>
@@ -23,14 +30,17 @@
     </nav>
   </header>
 
-  <section class="unterseiten-hero">
-    <h1>Sternenkinder</h1>
+  <section class="hero">
+    <div class="intro-text">
+      <h1>Vorlage</h1>
+      <p>Hier stellen sich unsere Sternenwesen vor – liebevoll, magisch und einzigartig.</p>
+    </div>
   </section>
 
   <section class="content">
+    <!-- Hier kommt der individuelle Inhalt der Unterseite -->
     <p>
-      Hier entsteht die liebevolle Sammlung der kleinen Sternenkinder. Jedes von ihnen hat seine eigene Geschichte, ein eigenes Leuchten und eine besondere Aufgabe.  
-      In diesen Kapiteln entdecken wir gemeinsam, wie sie unsere Welt verzaubern.
+      Bald erfährst du mehr über Blake, Yuki und Stella.
     </p>
   </section>
 
@@ -43,6 +53,13 @@
   <footer>
     &copy; Sternenkinder entdecken die Welt – Petra Schmidt
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('nav-links');
+      nav.classList.toggle('show');
+    }
+  </script>
 
 </body>
 </html>
