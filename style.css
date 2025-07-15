@@ -116,3 +116,17 @@ footer {
   padding: 20px 0;
   font-size: 0.9em;
 }
+
+.unterseiten-hero {
+  margin-top: 140px;
+  padding: 80px 20px 40px;
+  text-align: center;
+  background: transparent;
+}
+
+.unterseiten-hero h1 {
+  font-family: 'Poppins', sans-serif;
+  color: #243B55; /* Mittelblau wie im Header */
+  font-size: 2.2em;
+  margin-bottom: 30px;
+}
