@@ -82,7 +82,7 @@ h1 {
 }
 
 /* 3D-Sterne */
-  { .dot-star {
+ .dot-star {
   width: 8px;
   height: 8px;
   background: radial-gradient(circle, #fff, #ffcc70);
@@ -93,8 +93,6 @@ h1 {
   0%, 100% { opacity: 0.6; transform: scale(1); }
   50% { opacity: 1; transform: scale(1.4); }
 }
-}
-
 /* Footer: gleich wie Header */
 footer {
   background: linear-gradient(to right, #4A90E2 0%, #243B55 60%, #0D0D0D 100%);
