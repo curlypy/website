@@ -6,24 +6,27 @@ body {
   color: #333;
 }
 
-/* HEADER mit leichtem blauem Nachthimmel-Verlauf */
+/* HEADER mit intensiverem Nachthimmel-Verlauf */
 header {
   position: fixed;
   top: 0;
   width: 100%;
-  background: linear-gradient(to right, #243B55, #141E30); /* sanftes Nachthimmelblau */
+  background: linear-gradient(to right, #4A90E2, #243B55, #141E30); /* kräftigerer Verlauf */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 40px;
   z-index: 1000;
-  height: 100px;
+  height: 120px;
+  box-sizing: border-box;
 }
 
-/* LOGO leicht größer und gut lesbar */
+/* LOGO: passt genau in den Header */
 .logo {
-  height: 200px;
+  height: 100px;
   width: auto;
+  object-fit: contain;
+  display: block;
 }
 
 /* Navigation */
@@ -43,7 +46,7 @@ nav a:hover {
 /* Startseiten-Bereich */
 .hero {
   background: transparent;
-  margin-top: 120px;
+  margin-top: 140px; /* wegen höherem Header */
   padding: 100px 20px 40px;
   text-align: center;
 }
@@ -99,9 +102,9 @@ h1 {
   to   { opacity: 1; transform: scale(1.1); }
 }
 
-/* Footer */
+/* Footer: gleich wie Header */
 footer {
-  background: #1a1a1a;
+  background: linear-gradient(to right, #4A90E2, #243B55, #141E30);
   color: white;
   text-align: center;
   padding: 20px 0;
