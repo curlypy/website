@@ -81,18 +81,33 @@ h1 {
   background: #fff;
 }
 
-/* 3D-Sterne */
- .dot-star {
-  width: 8px;
-  height: 8px;
-  background: radial-gradient(circle, #fff, #ffcc70);
+.floating-stars {
+  position: relative;
+  height: 100px;
+  width: 100%;
+  background: transparent;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.dot-star {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle, #fffbe6, #ffcc70);
   border-radius: 50%;
-  animation: shimmer 2s infinite ease-in-out;
+  box-shadow: 0 0 10px #ffcc70;
+  animation: shimmer 3s ease-in-out infinite;
+  opacity: 0.9;
 }
+
 @keyframes shimmer {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.4); }
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.5); opacity: 1; }
 }
+
+
+
 /* Footer: gleich wie Header */
 footer {
   background: linear-gradient(to right, #4A90E2 0%, #243B55 60%, #0D0D0D 100%);
