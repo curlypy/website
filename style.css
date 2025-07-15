@@ -82,25 +82,17 @@ h1 {
 }
 
 /* 3D-Sterne */
-.stars-3d {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin: 60px 0;
+  { .dot-star {
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #fff, #ffcc70);
+  border-radius: 50%;
+  animation: shimmer 2s infinite ease-in-out;
 }
-
-.star-3d {
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(45deg, #FFD700, #FFA500);
-  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-  transform: rotateX(20deg) rotateY(20deg);
-  animation: twinkle 2s infinite alternate;
+@keyframes shimmer {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.4); }
 }
-
-@keyframes twinkle {
-  from { opacity: 0.7; transform: scale(1); }
-  to   { opacity: 1; transform: scale(1.1); }
 }
 
 /* Footer: gleich wie Header */
