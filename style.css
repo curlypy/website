@@ -186,3 +186,50 @@ footer {
   font-style: normal;
   text-shadow: 0 0 8px rgba(255, 220, 150, 0.5);
 }
+
+.menu-toggle {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 2em;
+  color: white;
+  cursor: pointer;
+  padding-left: 20px;
+}
+
+/* Für kleine Bildschirme */
+@media (max-width: 768px) {
+  nav {
+    position: absolute;
+    top: 120px;
+    right: 0;
+    background: #243B55;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    z-index: 999;
+  }
+
+  nav a {
+    margin: 15px 0;
+    font-size: 1.2em;
+  }
+
+  .menu-icon {
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+  }
+
+  .menu-toggle:checked + .menu-icon + nav {
+    display: flex;
+  }
+
+  header {
+    flex-wrap: wrap;
+  }
+}
