@@ -101,13 +101,11 @@
   </div>
   <div class="center-text" id="magicText">Tauche mit uns in die magische Welt ein</div>
   <script>
-    // Wärmere Sternfarben
-    const warmColors = [
-      'rgba(255, 220, 160, 0.95)', // warm gelb
-      'rgba(255, 236, 200, 0.85)', // soft gelb
-      'rgba(255, 200, 140, 0.7)',  // orange
-      'rgba(255, 245, 220, 0.6)',  // fast weiß
-      'rgba(255, 230, 180, 0.8)'   // gold
+    // Neutrale Sternfarben
+    const starColors = [
+      'rgba(255,255,255,0.85)',
+      'rgba(255,255,255,0.65)',
+      'rgba(220,220,255,0.5)'
     ];
     const canvas = document.getElementById('star-canvas');
     const ctx = canvas.getContext('2d');
@@ -122,44 +120,41 @@
     }
     function drawStars() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      // Oben: wenig, kleine, warme Sterne
+      // Oben: wenig, kleine, neutrale Sterne
       for (let i = 0; i < 40; i++) {
         let x = randomBetween(0, canvas.width);
         let y = randomBetween(0, canvas.height * 0.25);
         let r = randomBetween(0.3, 1.1);
         ctx.beginPath();
         ctx.arc(x, y, r, 0, 2 * Math.PI);
-        ctx.fillStyle = warmColors[Math.floor(Math.random()*warmColors.length)];
-        ctx.shadowColor = '#ffdca0';
-        ctx.shadowBlur = 8;
-        ctx.fill();
+        ctx.fillStyle = starColors[Math.floor(Math.random()*starColors.length)];
+        ctx.shadowColor = 'transparent';
         ctx.shadowBlur = 0;
+        ctx.fill();
       }
-      // Mitte: mehr, größere, warme Sterne
+      // Mitte: mehr, größere, neutrale Sterne
       for (let i = 0; i < 80; i++) {
         let x = randomBetween(0, canvas.width);
         let y = randomBetween(canvas.height * 0.25, canvas.height * 0.7);
         let r = randomBetween(0.7, 2.2);
         ctx.beginPath();
         ctx.arc(x, y, r, 0, 2 * Math.PI);
-        ctx.fillStyle = warmColors[Math.floor(Math.random()*warmColors.length)];
-        ctx.shadowColor = '#ffdca0';
-        ctx.shadowBlur = 12;
-        ctx.fill();
+        ctx.fillStyle = starColors[Math.floor(Math.random()*starColors.length)];
+        ctx.shadowColor = 'transparent';
         ctx.shadowBlur = 0;
+        ctx.fill();
       }
-      // Unten: sehr wenige, sehr kleine, warme Sterne
+      // Unten: sehr wenige, sehr kleine, neutrale Sterne
       for (let i = 0; i < 15; i++) {
         let x = randomBetween(0, canvas.width);
         let y = randomBetween(canvas.height * 0.7, canvas.height);
         let r = randomBetween(0.2, 0.7);
         ctx.beginPath();
         ctx.arc(x, y, r, 0, 2 * Math.PI);
-        ctx.fillStyle = warmColors[Math.floor(Math.random()*warmColors.length)];
-        ctx.shadowColor = '#ffdca0';
-        ctx.shadowBlur = 6;
-        ctx.fill();
+        ctx.fillStyle = starColors[Math.floor(Math.random()*starColors.length)];
+        ctx.shadowColor = 'transparent';
         ctx.shadowBlur = 0;
+        ctx.fill();
       }
     }
     drawStars();
