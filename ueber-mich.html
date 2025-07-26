@@ -9,9 +9,9 @@
 </head>
 <body>
   <canvas id="star-canvas-bg"></canvas>
-  <script>
-    // Sternenhimmel Hintergrund
-    const canvasBg = document.getElementById('star-canvas-bg');
+  <footer style="position: absolute; bottom: 8px; left: 0; width: 100vw; text-align: center; font-size: 0.95rem; color: #fff8e1; opacity: 0.7; z-index: 10; background: transparent;">
+    <span style="font-size:1.1em;vertical-align:middle;">&copy;</span> Gründerin Petra Schmidt
+  </footer>
     const ctxBg = canvasBg.getContext('2d');
     function resizeCanvasBg() {
       canvasBg.width = window.innerWidth;
