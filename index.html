@@ -12,14 +12,12 @@
   <!-- Landing Overlay -->
   <div id="landing-overlay" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;background:linear-gradient(to bottom,#0a0a0a 0%,#23234a 60%,#3a3a6a 100%);overflow:hidden;">
     <canvas id="star-canvas" style="position:absolute;top:0;left:0;width:100vw;height:100vh;z-index:1;pointer-events:none;"></canvas>
-    <div class="center-text" id="magicText" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;font-size:2.2rem;font-family:'Georgia',serif;text-shadow:0 0 20px #fff,0 0 40px #23234a;z-index:2;cursor:pointer;padding:1.2rem 2.5rem;background:rgba(30,30,50,0.2);border-radius:1.5rem;transition:background 0.3s;">Tauche mit uns in eine magische Welt ein</div>
-    <svg class="clouds" viewBox="0 0 1920 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;bottom:0;left:0;width:100vw;height:30vh;z-index:3;pointer-events:none;background:none;">
-      <ellipse cx="300" cy="350" rx="300" ry="70" fill="#fff" fill-opacity="0.25"/>
-      <ellipse cx="700" cy="370" rx="250" ry="60" fill="#fff" fill-opacity="0.18"/>
-      <ellipse cx="1200" cy="340" rx="320" ry="80" fill="#fff" fill-opacity="0.22"/>
-      <ellipse cx="1700" cy="380" rx="220" ry="50" fill="#fff" fill-opacity="0.15"/>
-      <ellipse cx="1000" cy="390" rx="180" ry="40" fill="#fff" fill-opacity="0.12"/>
-    </svg>
+    <div style="position:absolute;top:40%;left:50%;transform:translate(-50%,-100%);display:flex;gap:2rem;z-index:2;">
+      <img src="bild1.png" alt="Bild 1" width="48" height="48" style="object-fit:contain;" />
+      <img src="bild2.png" alt="Bild 2" width="48" height="48" style="object-fit:contain;" />
+      <img src="bild3.png" alt="Bild 3" width="48" height="48" style="object-fit:contain;" />
+    </div>
+    <div class="center-text" id="magicText" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;font-size:2.2rem;font-family:'Georgia',serif;text-shadow:0 0 20px #fff,0 0 40px #23234a;z-index:2;cursor:pointer;padding:1.2rem 2.5rem;background:rgba(30,30,50,0.2);border-radius:1.5rem;transition:background 0.3s;">Tauche mit uns in die magische Welt ein</div>
   </div>
   <script>
     // Sternenhimmel

@@ -2,8 +2,29 @@
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background: #ffffff;
-  color: #333;
+  background: linear-gradient(to bottom, #0a0a0a 0%, #23234a 60%, #3a3a6a 100%);
+  color: #fff;
+}
+
+/* Sternenhimmel Canvas als Hintergrund */
+#star-canvas-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Hauptinhalte über dem Sternenhimmel */
+main, header, nav, .hero, .intro-text, .intro-glow, .floating-stars, footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Links und Überschriften weiß */
+a, h1, h2, h3, h4, h5, h6, p, li, label, input, .intro-text, .intro-glow {
+  color: #fff !important;
 }
 
 /* HEADER mit intensiverem Nachthimmel-Verlauf */
