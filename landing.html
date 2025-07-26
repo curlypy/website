@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magische Welt Landing Page</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    body {
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(to bottom, #0a0a0a 0%, #23234a 60%, #3a3a6a 100%);
+      position: relative;
+    }
+    #star-canvas {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .center-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      font-size: 2.2rem;
+      font-family: 'Georgia', serif;
+      text-shadow: 0 0 20px #fff, 0 0 40px #23234a;
+      z-index: 2;
+      cursor: pointer;
+      padding: 1.2rem 2.5rem;
+      background: rgba(30,30,50,0.2);
+      border-radius: 1.5rem;
+      transition: background 0.3s;
+    }
+    .center-text:hover {
+      background: rgba(30,30,50,0.5);
+    }
+    .clouds {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100vw;
+      height: 30vh;
+      z-index: 3;
+      pointer-events: none;
+      background: none;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="star-canvas"></canvas>
+  <div class="center-text" id="magicText">Tauche mit uns in eine magische Welt ein</div>
+  <svg class="clouds" viewBox="0 0 1920 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="300" cy="350" rx="300" ry="70" fill="#fff" fill-opacity="0.25"/>
+    <ellipse cx="700" cy="370" rx="250" ry="60" fill="#fff" fill-opacity="0.18"/>
+    <ellipse cx="1200" cy="340" rx="320" ry="80" fill="#fff" fill-opacity="0.22"/>
+    <ellipse cx="1700" cy="380" rx="220" ry="50" fill="#fff" fill-opacity="0.15"/>
+    <ellipse cx="1000" cy="390" rx="180" ry="40" fill="#fff" fill-opacity="0.12"/>
+  </svg>
+  <script>
+    // Sternenhimmel
+    const canvas = document.getElementById('star-canvas');
+    const ctx = canvas.getContext('2d');
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    function randomBetween(a, b) {
+      return Math.random() * (b - a) + a;
+    }
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // Oben: wenig, kleine Sterne
+      for (let i = 0; i < 40; i++) {
+        let x = randomBetween(0, canvas.width);
+        let y = randomBetween(0, canvas.height * 0.25);
+        let r = randomBetween(0.3, 1.1);
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, 2 * Math.PI);
+        ctx.fillStyle = 'rgba(255,255,255,' + randomBetween(0.3,0.7) + ')';
+        ctx.fill();
+      }
+      // Mitte: mehr, größere Sterne
+      for (let i = 0; i < 80; i++) {
+        let x = randomBetween(0, canvas.width);
+        let y = randomBetween(canvas.height * 0.25, canvas.height * 0.7);
+        let r = randomBetween(0.7, 2.2);
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, 2 * Math.PI);
+        ctx.fillStyle = 'rgba(255,255,255,' + randomBetween(0.5,1) + ')';
+        ctx.fill();
+      }
+      // Unten: sehr wenige, sehr kleine Sterne
+      for (let i = 0; i < 15; i++) {
+        let x = randomBetween(0, canvas.width);
+        let y = randomBetween(canvas.height * 0.7, canvas.height);
+        let r = randomBetween(0.2, 0.7);
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, 2 * Math.PI);
+        ctx.fillStyle = 'rgba(255,255,255,' + randomBetween(0.2,0.5) + ')';
+        ctx.fill();
+      }
+    }
+    drawStars();
+    // Animation: leichtes Flackern
+    setInterval(drawStars, 1800);
+
+    // Klick auf Text: Weiterleitung zu index.html
+    document.getElementById('magicText').onclick = function() {
+      window.location.href = 'index.html';
+    };
+  </script>
+</body>
+</html>
