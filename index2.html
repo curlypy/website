@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magische Welt</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #18120a 0%, #23234a 100%);
+      color: #fff;
+      font-family: 'Poppins', 'Georgia', serif;
+      letter-spacing: 0.03em;
+    }
+    #star-canvas-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .menu {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 70px;
+      background: rgba(20, 15, 30, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+      box-shadow: 0 2px 16px #000a;
+      padding: 0 2rem;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: #ffdca0;
+    }
+    .burger {
+      width: 38px;
+      height: 38px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 11;
+    }
+    .burger span {
+      height: 4px;
+      width: 100%;
+      background: #ffdca0;
+      margin: 5px 0;
+      border-radius: 2px;
+      transition: 0.3s;
+      display: block;
+    }
+    .nav {
+      position: fixed;
+      top: 70px;
+      left: 0;
+      width: 100vw;
+      background: rgba(20, 15, 30, 0.98);
+      box-shadow: 0 2px 16px #000a;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      z-index: 9;
+      padding-bottom: 2rem;
+    }
+    .nav.show {
+      display: flex;
+    }
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      margin: 1.2rem 0;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .nav a:hover {
+      color: #ffdca0;
+    }
+    .nav a.inactive {
+      display: none;
+    }
+    main {
+      margin-top: 90px;
+      text-align: center;
+      min-height: 60vh;
+      z-index: 1;
+      position: relative;
+    }
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-top: 2.5rem;
+      color: #ffdca0;
+      text-shadow: 0 0 18px #23234a;
+    }
+    p {
+      font-size: 1.1rem;
+      color: #fff;
+      opacity: 0.85;
+      margin-top: 1.5rem;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <canvas id="star-canvas-bg"></canvas>
+  <div class="menu">
+    <div class="logo">Magische Welt</div>
+    <div class="burger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <nav class="nav" id="nav">
+    <a href="#" onclick="closeMenu()">Sternenkinder</a>
+    <a href="#" onclick="closeMenu()">Gute Nacht Geschichten</a>
+    <a href="#" onclick="closeMenu()">Über mich</a>
+    <a href="#" onclick="closeMenu()">Kontakt</a>
+    <a href="#" class="inactive">Impressum</a>
+    <a href="#" class="inactive">Shop</a>
+  </nav>
+  <main>
+    <h1>Willkommen in der magischen Welt</h1>
+    <p>Hier beginnt deine Reise. Wähle im Menü eine Seite aus.</p>
+  </main>
+  <script>
+    // Burger-Menü
+    function toggleMenu() {
+      document.getElementById('nav').classList.toggle('show');
+    }
+    function closeMenu() {
+      document.getElementById('nav').classList.remove('show');
+    }
+    // Wenige, warme Sterne
+    const warmColors = [
+      'rgba(255, 220, 160, 0.95)',
+      'rgba(255, 236, 200, 0.85)',
+      'rgba(255, 200, 140, 0.7)',
+      'rgba(255, 245, 220, 0.6)',
+      'rgba(255, 230, 180, 0.8)'
+    ];
+    const canvasBg = document.getElementById('star-canvas-bg');
+    const ctxBg = canvasBg.getContext('2d');
+    function resizeCanvasBg() {
+      canvasBg.width = window.innerWidth;
+      canvasBg.height = window.innerHeight;
+    }
+    resizeCanvasBg();
+    window.addEventListener('resize', resizeCanvasBg);
+    function randomBetween(a, b) {
+      return Math.random() * (b - a) + a;
+    }
+    function drawStarsBg() {
+      ctxBg.clearRect(0, 0, canvasBg.width, canvasBg.height);
+      for (let i = 0; i < 18; i++) {
+        let x = randomBetween(0, canvasBg.width);
+        let y = randomBetween(0, canvasBg.height);
+        let r = randomBetween(0.7, 2.7);
+        ctxBg.beginPath();
+        ctxBg.arc(x, y, r, 0, 2 * Math.PI);
+        ctxBg.fillStyle = warmColors[Math.floor(Math.random()*warmColors.length)];
+        ctxBg.shadowColor = '#ffdca0';
+        ctxBg.shadowBlur = 10;
+        ctxBg.fill();
+        ctxBg.shadowBlur = 0;
+      }
+    }
+    drawStarsBg();
+    setInterval(drawStarsBg, 2500);
+  </script>
+</body>
+</html>

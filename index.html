@@ -1,26 +1,114 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sternenkinder entdecken die Welt</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magische Welt Landing Page</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    body {
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(to bottom, #18120a 0%, #3a2a1a 60%, #5a3a2a 100%);
+      position: relative;
+    }
+    #star-canvas {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .center-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff8e1;
+      font-size: 2.3rem;
+      font-family: 'Poppins', 'Georgia', serif;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      text-shadow: 0 0 32px #ffdca0, 0 0 8px #fff8e1, 0 0 2px #a67c52;
+      z-index: 2;
+      cursor: pointer;
+      padding: 1.2rem 2.5rem;
+      background: rgba(60,40,20,0.18);
+      border-radius: 1.5rem;
+      transition: background 0.3s, color 0.3s;
+      box-shadow: 0 4px 32px 0 #a67c5233;
+      max-width: 90vw;
+      text-align: center;
+    }
+    .center-text:hover {
+      background: rgba(60,40,20,0.35);
+      color: #fffbe8;
+    }
+    .icon-row {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%,-100%);
+      display: flex;
+      gap: 2rem;
+      z-index: 2;
+    }
+    .icon-row img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 12px #ffdca0);
+    }
+    @media (max-width: 600px) {
+      .center-text {
+        font-size: 1.2rem;
+        padding: 0.7rem 1.2rem;
+      }
+      .icon-row {
+        gap: 1rem;
+      }
+      .icon-row img {
+        width: 32px;
+        height: 32px;
+      }
+    }
+    @media (max-width: 400px) {
+      .center-text {
+        font-size: 1rem;
+        padding: 0.5rem 0.7rem;
+      }
+      .icon-row img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- Landing Overlay -->
-  <div id="landing-overlay" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;background:linear-gradient(to bottom,#0a0a0a 0%,#23234a 60%,#3a3a6a 100%);overflow:hidden;">
-    <canvas id="star-canvas" style="position:absolute;top:0;left:0;width:100vw;height:100vh;z-index:1;pointer-events:none;"></canvas>
-    <div style="position:absolute;top:40%;left:50%;transform:translate(-50%,-100%);display:flex;gap:2rem;z-index:2;">
-      <img src="bild1.png" alt="Bild 1" width="48" height="48" style="object-fit:contain;" />
-      <img src="bild2.png" alt="Bild 2" width="48" height="48" style="object-fit:contain;" />
-      <img src="bild3.png" alt="Bild 3" width="48" height="48" style="object-fit:contain;" />
-    </div>
-    <div class="center-text" id="magicText" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;font-size:2.2rem;font-family:'Georgia',serif;text-shadow:0 0 20px #fff,0 0 40px #23234a;z-index:2;cursor:pointer;padding:1.2rem 2.5rem;background:rgba(30,30,50,0.2);border-radius:1.5rem;transition:background 0.3s;">Tauche mit uns in die magische Welt ein</div>
+  <canvas id="star-canvas"></canvas>
+  <div class="icon-row">
+    <img src="bild1.png" alt="Bild 1" />
+    <img src="bild2.png" alt="Bild 2" />
+    <img src="bild3.png" alt="Bild 3" />
   </div>
+  <div class="center-text" id="magicText">Tauche mit uns in die magische Welt ein</div>
   <script>
-    // Sternenhimmel
+    // Wärmere Sternfarben
+    const warmColors = [
+      'rgba(255, 220, 160, 0.95)', // warm gelb
+      'rgba(255, 236, 200, 0.85)', // soft gelb
+      'rgba(255, 200, 140, 0.7)',  // orange
+      'rgba(255, 245, 220, 0.6)',  // fast weiß
+      'rgba(255, 230, 180, 0.8)'   // gold
+    ];
     const canvas = document.getElementById('star-canvas');
     const ctx = canvas.getContext('2d');
     function resizeCanvas() {
@@ -34,104 +122,52 @@
     }
     function drawStars() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      // Oben: wenig, kleine Sterne
+      // Oben: wenig, kleine, warme Sterne
       for (let i = 0; i < 40; i++) {
         let x = randomBetween(0, canvas.width);
         let y = randomBetween(0, canvas.height * 0.25);
         let r = randomBetween(0.3, 1.1);
         ctx.beginPath();
         ctx.arc(x, y, r, 0, 2 * Math.PI);
-        ctx.fillStyle = 'rgba(255,255,255,' + randomBetween(0.3,0.7) + ')';
+        ctx.fillStyle = warmColors[Math.floor(Math.random()*warmColors.length)];
+        ctx.shadowColor = '#ffdca0';
+        ctx.shadowBlur = 8;
         ctx.fill();
+        ctx.shadowBlur = 0;
       }
-      // Mitte: mehr, größere Sterne
+      // Mitte: mehr, größere, warme Sterne
       for (let i = 0; i < 80; i++) {
         let x = randomBetween(0, canvas.width);
         let y = randomBetween(canvas.height * 0.25, canvas.height * 0.7);
         let r = randomBetween(0.7, 2.2);
         ctx.beginPath();
         ctx.arc(x, y, r, 0, 2 * Math.PI);
-        ctx.fillStyle = 'rgba(255,255,255,' + randomBetween(0.5,1) + ')';
+        ctx.fillStyle = warmColors[Math.floor(Math.random()*warmColors.length)];
+        ctx.shadowColor = '#ffdca0';
+        ctx.shadowBlur = 12;
         ctx.fill();
+        ctx.shadowBlur = 0;
       }
-      // Unten: sehr wenige, sehr kleine Sterne
+      // Unten: sehr wenige, sehr kleine, warme Sterne
       for (let i = 0; i < 15; i++) {
         let x = randomBetween(0, canvas.width);
         let y = randomBetween(canvas.height * 0.7, canvas.height);
         let r = randomBetween(0.2, 0.7);
         ctx.beginPath();
         ctx.arc(x, y, r, 0, 2 * Math.PI);
-        ctx.fillStyle = 'rgba(255,255,255,' + randomBetween(0.2,0.5) + ')';
+        ctx.fillStyle = warmColors[Math.floor(Math.random()*warmColors.length)];
+        ctx.shadowColor = '#ffdca0';
+        ctx.shadowBlur = 6;
         ctx.fill();
+        ctx.shadowBlur = 0;
       }
     }
     drawStars();
     setInterval(drawStars, 1800);
-    // Klick auf Text: Overlay ausblenden
+    // Klick auf Text: Weiterleitung zu index2.html
     document.getElementById('magicText').onclick = function() {
-      document.getElementById('landing-overlay').style.opacity = '0';
-      setTimeout(function(){
-        document.getElementById('landing-overlay').style.display = 'none';
-      }, 600);
+      window.location.href = 'index2.html';
     };
   </script>
-  <!-- Ende Landing Overlay -->
-  <header>
-  <div class="logo-container">
-    <img src="logo_schwarz_weiss.png" alt="Sternenkinder Logo" class="logo" />
-  </div>
-  <input type="checkbox" id="menu-toggle" class="menu-toggle">
-  <label for="menu-toggle" class="menu-icon">☰</label>
-  <nav>
-    <a href="index.html">Startseite</a>
-    <a href="sternenkinder.html">Sternenkinder</a>
-    <a href="ueber-mich.html">Über mich</a>
-    <a href="geschichten.html">Geschichten</a>
-    <a href="kontakt.html">Kontakt</a>
-    <a href="shop.html">Shop</a>
-  </nav>
-  </header>
-
-  <section class="hero">
-    <div class="intro-text">
-      <h1>Sternenkinder entdecken die Welt</h1>
-    </div>
-    <section class="intro-glow">
-    <p>
-    <strong>Willkommen in einer Welt, in der Sterne lebendig werden.</strong><br><br>
-
-    Hoch oben am Himmel, wo das Licht flüstert und die Dunkelheit glitzert, leben kleine Sternenkinder.  
-    Leuchtende Wesen voller Neugier, die sich Nacht für Nacht auf den Weg zur Erde machen –  
-    auf der Suche nach kleinen Wundern im Alltäglichen.
-
-    <br><br>
-    In liebevoll erzählten Geschichten begleiten wir <strong>Blake, Yuki</strong> und <strong>Stella</strong> –  
-    drei Sternenkinder, die lachen, lauschen, forschen und staunen.  
-    Sie treffen auf Löffel, Tücher, Becher oder Stühle – und entdecken darin das Leben selbst.
-
-    <br><br>
-    Diese Seite lädt dich ein, einzutauchen in eine Welt voll <em>Magie, Erinnerung, Geborgenheit</em>  
-    – und ganz viel <strong>Sternenstaub</strong>.
-    </p>
-    </section>
-  </section>  
-
- <div class="floating-stars">
-   <div class="dot-star" style="top: 10px; left: 20%;"></div>
-   <div class="dot-star" style="top: 40px; left: 50%;"></div>
-   <div class="dot-star" style="top: 70px; left: 75%;"></div>
- </div>
-
- <footer>
-   &copy; Sternenkinder entdecken die Welt – Petra Schmidt
- </footer>
-
- <script>
-    function toggleMenu() {
-      const nav = document.getElementById('nav-links');
-      nav.classList.toggle('show');
-    }
-  </script>
-
 </body>
 </html>
