@@ -1,167 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tauche mit Blake, Yuki und Stella in die magische Welt der Sternenkinder ein.">
   <title>Sternenkinder entdecken die Welt</title>
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-    }
-    body {
-      width: 100vw;
-      height: 100vh;
-      background: linear-gradient(to bottom, #18120a 0%, #23234a 100%);
-      position: relative;
-    }
-    .icon-row {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -60%);
-      width: 100vw;
-      display: flex;
-      justify-content: center;
-      z-index: 2;
-      pointer-events: none;
-    }
-    .icon-row img {
-      width: 600px;
-      max-width: 98vw;
-      height: auto;
-      object-fit: contain;
-      filter: drop-shadow(0 0 24px #23234a);
-      display: block;
-      margin: 0 auto;
-    }
-    .center-text {
-      position: absolute;
-      left: 50%;
-      top: 65%;
-      transform: translate(-50%, 0);
-      color: #fff8e1;
-      font-size: 1.3rem;
-      font-family: 'Poppins', 'Georgia', serif;
-      font-weight: 400;
-      letter-spacing: 0.04em;
-      text-shadow: 0 0 32px #ffdca0, 0 0 8px #fff8e1, 0 0 2px #a67c52;
-      z-index: 2;
-      cursor: pointer;
-      padding: 0.7rem 1.2rem;
-      background: rgba(60,40,20,0.18);
-      border-radius: 1.5rem;
-      transition: background 0.3s, color 0.3s;
-      box-shadow: 0 4px 32px 0 #a67c5233;
-      max-width: 80vw;
-      text-align: center;
-    }
-    .center-text:hover {
-      background: rgba(60,40,20,0.35);
-      color: #fffbe8;
-    }
-    @media (max-width: 600px) {
-      .icon-row img {
-        width: 90vw;
-        max-width: 98vw;
-      }
-      .center-text {
-        font-size: 1rem;
-        padding: 0.5rem 0.7rem;
-        top: 68%;
-      }
-    }
-    @media (max-width: 400px) {
-      .icon-row img {
-        width: 98vw;
-        max-width: 100vw;
-      }
-      .center-text {
-        font-size: 0.85rem;
-        padding: 0.4rem 0.5rem;
-        top: 70%;
-      }
-    }
-    /* Removed stray/faulty CSS block that caused a white line */
-  </style>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="site.js" defer></script>
 </head>
-<body>
-  <!-- Header removed -->
-  <canvas id="star-canvas"></canvas>
-  <div class="icon-row" style="gap:0;">
-    <img src="landing.png" alt="Landing Bild" style="width:600px;max-width:98vw;height:auto;object-fit:contain;filter:drop-shadow(0 0 24px #23234a);" />
-  </div>
-  <div class="center-text" id="magicText">Tauche mit uns in die magische Welt ein</div>
-  <footer style="position: absolute; bottom: 8px; left: 0; width: 100vw; text-align: center; font-size: 0.95rem; color: #fff8e1; opacity: 0.7; z-index: 10;">
-    <span style="font-size:1.1em;vertical-align:middle;">&copy;</span> Gründerin Petra Schmidt
-  </footer>
-  <script>
-    // Neutrale Sternfarben
-    const starColors = [
-      'rgba(255,255,255,0.85)',
-      'rgba(255,255,255,0.65)',
-      'rgba(220,220,255,0.5)'
-    ];
-    const canvas = document.getElementById('star-canvas');
-    const ctx = canvas.getContext('2d');
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-    function randomBetween(a, b) {
-      return Math.random() * (b - a) + a;
-    }
-    function drawStars() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      // Oben: wenig, kleine, neutrale Sterne
-      for (let i = 0; i < 40; i++) {
-        let x = randomBetween(0, canvas.width);
-        let y = randomBetween(0, canvas.height * 0.25);
-        let r = randomBetween(0.3, 1.1);
-        ctx.beginPath();
-        ctx.arc(x, y, r, 0, 2 * Math.PI);
-        ctx.fillStyle = starColors[Math.floor(Math.random()*starColors.length)];
-        ctx.shadowColor = 'transparent';
-        ctx.shadowBlur = 0;
-        ctx.fill();
-      }
-      // Mitte: mehr, größere, neutrale Sterne
-      for (let i = 0; i < 80; i++) {
-        let x = randomBetween(0, canvas.width);
-        let y = randomBetween(canvas.height * 0.25, canvas.height * 0.7);
-        let r = randomBetween(0.7, 2.2);
-        ctx.beginPath();
-        ctx.arc(x, y, r, 0, 2 * Math.PI);
-        ctx.fillStyle = starColors[Math.floor(Math.random()*starColors.length)];
-        ctx.shadowColor = 'transparent';
-        ctx.shadowBlur = 0;
-        ctx.fill();
-      }
-      // Unten: sehr wenige, sehr kleine, neutrale Sterne
-      for (let i = 0; i < 15; i++) {
-        let x = randomBetween(0, canvas.width);
-        let y = randomBetween(canvas.height * 0.7, canvas.height);
-        let r = randomBetween(0.2, 0.7);
-        ctx.beginPath();
-        ctx.arc(x, y, r, 0, 2 * Math.PI);
-        ctx.fillStyle = starColors[Math.floor(Math.random()*starColors.length)];
-        ctx.shadowColor = 'transparent';
-        ctx.shadowBlur = 0;
-        ctx.fill();
-      }
-    }
-    drawStars();
-    setInterval(drawStars, 1800);
-    // Klick auf Text: Weiterleitung zu index2.html
-    document.getElementById('magicText').onclick = function() {
-      window.location.href = 'index2.html';
-    };
-  </script>
+<body class="landing">
+  <canvas id="star-canvas-bg" aria-hidden="true"></canvas>
+  <main id="inhalt" class="landing-content">
+    <h1 class="visually-hidden">Sternenkinder entdecken die Welt</h1>
+    <img class="landing-image" src="landing.png" alt="Die magische Welt der Sternenkinder">
+    <a class="center-text" href="index2.html">Tauche mit uns in die magische Welt ein</a>
+  </main>
+  <footer>© Gründerin Petra Schmidt</footer>
 </body>
 </html>

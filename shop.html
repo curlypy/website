@@ -1,117 +1,42 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sternenkinder entdecken die Welt</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Die magische Welt der Sternenkinder.">
+  <title>Shop – Sternenkinder entdecken die Welt</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="site.js" defer></script>
 </head>
 <body>
-  <canvas id="star-canvas-bg"></canvas>
-  <script>
-    // Sternenhimmel Hintergrund
-    const canvasBg = document.getElementById('star-canvas-bg');
-    const ctxBg = canvasBg.getContext('2d');
-    function resizeCanvasBg() {
-      canvasBg.width = window.innerWidth;
-      canvasBg.height = window.innerHeight;
-    }
-    resizeCanvasBg();
-    window.addEventListener('resize', resizeCanvasBg);
-    function randomBetween(a, b) {
-      return Math.random() * (b - a) + a;
-    }
-    function drawStarsBg() {
-      ctxBg.clearRect(0, 0, canvasBg.width, canvasBg.height);
-      for (let i = 0; i < 40; i++) {
-        let x = randomBetween(0, canvasBg.width);
-        let y = randomBetween(0, canvasBg.height * 0.25);
-        let r = randomBetween(0.3, 1.1);
-        ctxBg.beginPath();
-        ctxBg.arc(x, y, r, 0, 2 * Math.PI);
-        ctxBg.fillStyle = 'rgba(255,255,255,' + randomBetween(0.3,0.7) + ')';
-        ctxBg.fill();
-      }
-      for (let i = 0; i < 80; i++) {
-        let x = randomBetween(0, canvasBg.width);
-        let y = randomBetween(canvasBg.height * 0.25, canvasBg.height * 0.7);
-        let r = randomBetween(0.7, 2.2);
-        ctxBg.beginPath();
-        ctxBg.arc(x, y, r, 0, 2 * Math.PI);
-        ctxBg.fillStyle = 'rgba(255,255,255,' + randomBetween(0.5,1) + ')';
-        ctxBg.fill();
-      }
-      for (let i = 0; i < 15; i++) {
-        let x = randomBetween(0, canvasBg.width);
-        let y = randomBetween(canvasBg.height * 0.7, canvasBg.height);
-        let r = randomBetween(0.2, 0.7);
-        ctxBg.beginPath();
-        ctxBg.arc(x, y, r, 0, 2 * Math.PI);
-        ctxBg.fillStyle = 'rgba(255,255,255,' + randomBetween(0.2,0.5) + ')';
-        ctxBg.fill();
-      }
-    }
-    drawStarsBg();
-    setInterval(drawStarsBg, 1800);
-  </script>
-
-  <header style="position: fixed; top: 0; left: 0; width: 100vw; height: 70px; display: flex; align-items: center; background: rgba(20, 15, 30, 0.95); z-index: 10; box-shadow: 0 2px 16px #000a;">
-    <img src="landing.png" alt="Logo" style="height:38px;width:auto;margin-left:8px;margin-top:4px;object-fit:contain;filter:drop-shadow(0 0 6px #23234a);" />
-    <!-- Heading 'Magische Welt' removed from header -->
+  <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+  <canvas id="star-canvas-bg" aria-hidden="true"></canvas>
+  <header>
+    <a class="brand" href="index2.html" aria-label="Sternenkinder – zur Startseite">
+      <img src="landing.png" alt="Sternenkinder entdecken die Welt" width="100" height="60">
+    </a>
+    <details class="navigation">
+      <summary><span class="burger" aria-hidden="true"><span></span><span></span><span></span></span><span>Menü</span></summary>
+      <nav aria-label="Hauptnavigation">
+          <a href="index2.html">Startseite</a>
+          <a href="sternenkinder.html">Sternenkinder</a>
+          <a href="geschichten.html">Geschichten</a>
+          <a href="ueber-mich.html">Über mich</a>
+          <a href="kontakt.html">Kontakt</a>
+          <a href="shop.html" aria-current="page">Shop</a>
+      </nav>
+    </details>
   </header>
-      <img src="logo_schwarz_weiss.png" alt="Sternenkinder Logo" class="logo" />
-    </div>
-
-    <div class="burger" onclick="toggleMenu()">
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-    </div>
-
-    <nav id="nav-links">
-      <a href="index.html">Startseite</a>
-      <a href="sternenkinder.html">Sternenkinder</a>
-      <a href="ueber-mich.html">Über mich</a>
-      <a href="geschichten.html">Geschichten</a>
-      <a href="kontakt.html">Kontakt</a>
-      <a href="shop.html">Shop</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <div class="intro-text">
+  <main id="inhalt" tabindex="-1">
+    <section class="hero">
       <h1>Shop</h1>
-      <p>Hier stellen sich unsere Sternenwesen vor – liebevoll, magisch und einzigartig.</p>
-    </div>
-  </section>
-
-  <section class="content">
-    <!-- Hier kommt der individuelle Inhalt der Unterseite -->
-    <p>
-      Bald erfährst du mehr über Blake, Yuki und Stella.
-    </p>
-  </section>
-
-  <div class="floating-stars">
-    <div class="dot-star" style="top: 10px; left: 20%;"></div>
-    <div class="dot-star" style="top: 40px; left: 50%;"></div>
-    <div class="dot-star" style="top: 70px; left: 75%;"></div>
-  </div>
-
-  <footer>
-    &copy; Sternenkinder entdecken die Welt – Petra Schmidt
-  <footer style="position: fixed; bottom: 8px; left: 0; width: 100vw; text-align: center; font-size: 0.95rem; color: #fff8e1; opacity: 0.7; z-index: 10;">
-    <span style="font-size:1.1em;vertical-align:middle;">&copy;</span> Gründerin Petra Schmidt
-  </footer>
-    function toggleMenu() {
-      const nav = document.getElementById('nav-links');
-      nav.classList.toggle('show');
-    }
-  </script>
-  <footer style="width:100vw;min-height:36px;padding:8px 0 6px 0;position:fixed;bottom:0;left:0;text-align:center;font-size:0.97rem;color:#fff8e1;z-index:10;background:rgba(35,35,74,0.72);backdrop-filter:blur(2px);box-shadow:0 -2px 16px #000a;">
-    <span style="font-size:1.1em;vertical-align:middle;">&copy;</span> Gründerin Petra Schmidt
-  </footer>
-
+      <p>Die magische Welt der Sternenkinder.</p>
+    </section>
+    <section class="content" aria-label="Information">
+      <p>Unser Shop ist noch in Vorbereitung. Hier gibt es derzeit keine Produkte zu kaufen.</p>
+      <a href="index2.html">Zur Startseite</a>
+    </section>
+  </main>
+  <footer>© Gründerin Petra Schmidt</footer>
 </body>
 </html>

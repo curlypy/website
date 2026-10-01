@@ -1,65 +1,42 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sternenkinder entdecken die Welt</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sternenkinder entdecken die Welt.">
+  <title>Vorlage – Sternenkinder entdecken die Welt</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="site.js" defer></script>
 </head>
 <body>
-
+  <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+  <canvas id="star-canvas-bg" aria-hidden="true"></canvas>
   <header>
-    <div class="logo-container">
-      <img src="logo_schwarz_weiss.png" alt="Sternenkinder Logo" class="logo" />
-    </div>
-
-    <div class="burger" onclick="toggleMenu()">
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-    </div>
-
-    <nav id="nav-links">
-      <a href="index.html">Startseite</a>
-      <a href="sternenkinder.html">Sternenkinder</a>
-      <a href="ueber-mich.html">Über mich</a>
-      <a href="geschichten.html">Geschichten</a>
-      <a href="kontakt.html">Kontakt</a>
-      <a href="shop.html">Shop</a>
-    </nav>
+    <a class="brand" href="index2.html" aria-label="Sternenkinder – zur Startseite">
+      <img src="landing.png" alt="Sternenkinder entdecken die Welt" width="100" height="60">
+    </a>
+    <details class="navigation">
+      <summary><span class="burger" aria-hidden="true"><span></span><span></span><span></span></span><span>Menü</span></summary>
+      <nav aria-label="Hauptnavigation">
+          <a href="index2.html">Startseite</a>
+          <a href="sternenkinder.html">Sternenkinder</a>
+          <a href="geschichten.html">Geschichten</a>
+          <a href="ueber-mich.html">Über mich</a>
+          <a href="kontakt.html">Kontakt</a>
+          <a href="shop.html">Shop</a>
+      </nav>
+    </details>
   </header>
-
-  <section class="hero">
-    <div class="intro-text">
+  <main id="inhalt" tabindex="-1">
+    <section class="hero">
       <h1>Vorlage</h1>
-      <p>Hier stellen sich unsere Sternenwesen vor – liebevoll, magisch und einzigartig.</p>
-    </div>
-  </section>
-
-  <section class="content">
-    <!-- Hier kommt der individuelle Inhalt der Unterseite -->
-    <p>
-      Bald erfährst du mehr über Blake, Yuki und Stella.
-    </p>
-  </section>
-
-  <div class="floating-stars">
-    <div class="dot-star" style="top: 10px; left: 20%;"></div>
-    <div class="dot-star" style="top: 40px; left: 50%;"></div>
-    <div class="dot-star" style="top: 70px; left: 75%;"></div>
-  </div>
-
-  <footer>
-    &copy; Sternenkinder entdecken die Welt – Petra Schmidt
-  </footer>
-
-  <script>
-    function toggleMenu() {
-      const nav = document.getElementById('nav-links');
-      nav.classList.toggle('show');
-    }
-  </script>
-
+      <p>Sternenkinder entdecken die Welt.</p>
+    </section>
+    <section class="content" aria-label="Information">
+      <p>Hier kann der Inhalt einer neuen Unterseite ergänzt werden.</p>
+      <a href="index2.html">Zur Startseite</a>
+    </section>
+  </main>
+  <footer>© Gründerin Petra Schmidt</footer>
 </body>
 </html>
